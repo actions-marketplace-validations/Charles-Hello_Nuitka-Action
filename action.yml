@@ -170,6 +170,12 @@ runs:
             $args += @("--include-package-data=$datum");
           }
         }
+        if ("${{ inputs.include-module }}" -ne ''){
+          $modules = ("${{ inputs.include-module }}" -split '\s*,\s*')
+          foreach ($module in $modules) {
+            $args += @("--include-module=$module");
+          }
+        }
         if ("${{ inputs.user-package-configuration-file }}" -ne ''){
           $user_yaml_files = ("${{ inputs.user-package-configuration-file }}" -split '\s*,\s*')
           foreach ($user_yaml_file in $user_yaml_files) {
