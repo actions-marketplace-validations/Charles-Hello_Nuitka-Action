@@ -1,4 +1,4 @@
-name: Build EXE from Python Script
+name: nuitka-action use by self
 
 branding:
   icon: "package"
