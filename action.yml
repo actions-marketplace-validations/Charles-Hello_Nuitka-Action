@@ -228,7 +228,10 @@ runs:
           ARGS+=" --output-dir=${{ inputs.output-dir }}"
         fi
         if [ "${{ inputs.include-module }}" != "" ]; then
-          ARGS+=" --include-module=${{ inputs.include-module }}"
+          for plugin in $(echo ${{ inputs.include-module }} | sed "s/,/ /g")
+          do
+            ARGS+=" --include-module=$plugin"
+          done
         fi
         if [ "${{ inputs.output-file }}" != "" ]; then
           ARGS+=" -o ${{ inputs.output-file }}"
