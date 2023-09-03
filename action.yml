@@ -227,6 +227,9 @@ runs:
         if [ "${{ inputs.output-dir }}" != "" ]; then
           ARGS+=" --output-dir=${{ inputs.output-dir }}"
         fi
+        if [ "${{ inputs.include-module }}" != "" ]; then
+          ARGS+=" --include-module=${{ inputs.include-module }}"
+        fi
         if [ "${{ inputs.output-file }}" != "" ]; then
           ARGS+=" -o ${{ inputs.output-file }}"
         fi
